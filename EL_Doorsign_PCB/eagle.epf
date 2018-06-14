@@ -1,2 +1,29 @@
 [Eagle]
 Version="05 06 00"
+Platform="Windows"
+Serial="6A1E6FC420-LS-W-1CP"
+Globals="Globals"
+Desktop="Desktop"
+
+[Globals]
+AutoSaveProject=1
+UsedLibrary="EL_Doorsign.lbr"
+
+[Win_1]
+Type="CAM Processor"
+Loc="78 78 1061 670"
+State=2
+Number=4
+File="EL_Doorsign.brd"
+Job="C:/Program Files (x86)/EAGLE-5.6.0/cam/_Rich_2layer.cam"
+
+[Win_2]
+Type="Control Panel"
+Loc="1593 -88 2390 779"
+State=2
+Number=0
+
+[Desktop]
+Screen="3200 988"
+Window="Win_1"
+Window="Win_2"
