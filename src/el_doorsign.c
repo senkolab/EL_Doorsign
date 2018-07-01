@@ -19,7 +19,8 @@
 // external prototypes
 //
 void portInit(void);
-void timerInit(int, int);
+void timerAudio(int); 
+void timerEL(voidd); 
 void wdogInit(void); 
 void note(int, int);
 void rest(int);
@@ -151,6 +152,7 @@ int main(void) {
   portInit();
 
   play();
+  timerEL();
 
   // stall forever
   while(1)
@@ -186,7 +188,7 @@ void portInit(void)
 //
 // initialize Timer
 //
-void timerInit(int freq_a, int freq_b) {
+void timerAudio(int freq_a) {
   int value;
 
   CLKPR = 0;                  // program clock prescaler
@@ -211,6 +213,22 @@ void timerInit(int freq_a, int freq_b) {
 }
 
 //
+// initialize Timer for EL display
+//
+void timerEL(void) {
+
+  CLKPR = 0;                  // program clock prescaler
+  CLKPR = (1<<CLKPCE);        // enable prescaler changes
+
+  TCCR0A = (1<<COM0A0) | (1<<COM0B0) | (1<<WGM01);     // COM-A = COM-B = toggle on ocmpare
+
+  TCCR0B = 0x1;   // CLK io / 8
+
+  OCR0A = 2;
+
+}
+
+//
 // configure watchdog
 //
 void wdogInit(void) 
@@ -223,7 +241,7 @@ void wdogInit(void)
 //
 void note(int freq, int ms_on)
 {
-  timerInit(freq, freq);
+  timerAudio(freq);
   DDRB |= 0x2;    // turn on PB1 (speaker)
   _delay_ms(ms_on);
 
