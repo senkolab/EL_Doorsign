@@ -1,4 +1,4 @@
-# QuDit Lab door display
+# QuDit Lab door display v1.2.0
 
 The lab touchscreen reports laser, ion trap, and experiment status. A second Raspberry Pi shows the door dashboard over HDMI. The Windows app can update the same status from a PC on the lab network.
 
@@ -37,7 +37,7 @@ The [Paladin Laser Controller](https://github.com/GauravTathed/Paladin-Laser-Con
 
 Simulator readings are shown separately as **SIM OPEN** or **SIM CLOSED**. A simulator open reading can show a labeled test notice when the manually reported shutter is off. Real shutter warnings stay visible. A test PC can use the receiver's `--simulator-only` option in its SSH key's forced command. QuDit Lab Remote shows the same readings and disables edits to the automatic tiles.
 
-For a new hardware feed, install [Paladin Laser Controller v1.1.0](https://github.com/GauravTathed/Paladin-Laser-Controller/releases/tag/v1.1.0) on the designated lab PC and follow its SSH setup. On an existing touchscreen Pi, copy the updated dashboard files over the current installation and retain `touch-calibration.json`, `.paladin-enabled`, and the Pi's SSH configuration. Restart the dashboard when the sign can be briefly taken offline.
+To connect the hardware feed, open [Paladin Laser Controller v1.2.0](https://github.com/GauravTathed/Paladin-Laser-Controller/releases/tag/v1.2.0). Enter the Pi hostname or IP, SSH port, and Pi account username and password, then click **Connect to Pi**. Paladin reports the shutter status while both the Pi and COM port are connected. On an existing touchscreen Pi, copy the updated dashboard files over the current installation and retain `touch-calibration.json`, `.paladin-enabled`, and the Pi's SSH configuration. Restart the dashboard when the sign can be briefly taken offline.
 
 ### HDMI relay
 
