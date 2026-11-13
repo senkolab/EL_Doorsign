@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.log
+*.tmp
+.door-viewer.lock
+touch-calibration.json
+.paladin-enabled

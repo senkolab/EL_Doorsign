@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Lab status</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <main class="console">
+    <header class="masthead">
+      <div class="identity">
+        <span class="beam-mark" aria-hidden="true"></span>
+        <h1>Lab status</h1>
+      </div>
+      <p class="connection" data-connection="connecting" role="status">Connecting</p>
+    </header>
+
+    <div class="workspace">
+      <section class="controller" aria-labelledby="controls-title">
+        <div class="section-heading">
+          <h2 id="controls-title">Touch controls</h2>
+          <span class="demo-tag">Demo</span>
+        </div>
+
+        <div class="control-card">
+          <div class="card-heading">
+            <h3>36 W laser</h3>
+            <span class="class-tag">Class 4</span>
+          </div>
+
+          <div class="control-row">
+            <span id="laser-label">Laser status</span>
+            <div class="choices" role="group" aria-labelledby="laser-label">
+              <button type="button" data-field="laser" data-value="unknown" aria-pressed="true" disabled>Unknown</button>
+              <button type="button" data-field="laser" data-value="off" aria-pressed="false" disabled>Off</button>
+              <button type="button" data-field="laser" data-value="on" aria-pressed="false" disabled>On</button>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <span id="lock-label">Lock status</span>
+            <div class="choices" role="group" aria-labelledby="lock-label">
+              <button type="button" data-field="lock" data-value="unknown" aria-pressed="true" disabled>Unknown</button>
+              <button type="button" data-field="lock" data-value="unlocked" aria-pressed="false" disabled>Unlocked</button>
+              <button type="button" data-field="lock" data-value="locked" aria-pressed="false" disabled>Locked</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-card experiment-card">
+          <div class="control-row">
+            <h3 id="experiment-label">Experiments</h3>
+            <div class="choices" role="group" aria-labelledby="experiment-label">
+              <button type="button" data-field="experiment" data-value="unknown" aria-pressed="true" disabled>Unknown</button>
+              <button type="button" data-field="experiment" data-value="idle" aria-pressed="false" disabled>Idle</button>
+              <button type="button" data-field="experiment" data-value="running" aria-pressed="false" disabled>Running</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="control-note">Updates the display only.</p>
+      </section>
+
+      <section class="door-section" aria-label="Door display">
+        <div class="section-heading preview-heading">
+          <h2>Door preview</h2>
+          <a href="/?view=door" target="_blank" rel="noopener">Open door view <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <article class="door-card" data-alert="unknown">
+          <div class="door-header">
+            <p>Lab entrance</p>
+            <span class="demo-tag">Demo</span>
+          </div>
+
+          <div class="door-message" aria-live="polite" aria-atomic="true">
+            <div class="signal" aria-hidden="true"></div>
+            <div>
+              <p class="alert-label" id="alert-label">Class 4 laser</p>
+              <h2 id="alert-title">Status unknown</h2>
+              <p class="entry-note" id="entry-note">Contact the lab operator before entering.</p>
+            </div>
+          </div>
+
+          <dl class="door-readings">
+            <div><dt>36 W Class 4 laser</dt><dd data-reading="laser" data-value="unknown">Unknown</dd></div>
+            <div><dt>Laser lock</dt><dd data-reading="lock" data-value="unknown">Unknown</dd></div>
+            <div><dt>Experiments</dt><dd data-reading="experiment" data-value="unknown">Unknown</dd></div>
+          </dl>
+          <p class="door-footer">Operator-reported status</p>
+        </article>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
